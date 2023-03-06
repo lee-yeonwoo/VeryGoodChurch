@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import './Tab.css';
+import '/Users/yeonoo/Desktop/workspace/my-app/src/css/Tab.css';
 
 function LinkTab(props) {
   return (
@@ -25,9 +25,9 @@ export default function NavTabs() {
   
   return (
     <Box sx={{ width: '100%'}}>
-       <div className="banner">
-      <img src = "clogo.png" alt="logo" classname = "clogo" />
-      </div>
+       {/* <div>
+      <img src = "clogo.png" alt="logo"/>
+      </div> */}
       <Tabs 
       value={value} 
       onChange={handleChange} 

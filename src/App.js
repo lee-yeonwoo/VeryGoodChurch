@@ -1,12 +1,14 @@
 import React from "react";
 import './App.css';
-
+import NavTabs from './components/Tab';
+import Banner from './components/Banner';
+import Album from './components/Album';
 function App() {
     return (
       <div>
-     <div class="banner">
-        <img src = "banner.png" alt="banner" className = "banner" />
-        </div>
+        <NavTabs />
+        <Banner></Banner>
+        <Album></Album>
       </div>
     );
   }
