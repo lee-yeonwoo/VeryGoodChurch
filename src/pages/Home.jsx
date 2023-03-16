@@ -90,31 +90,33 @@ const Albumsettings = {
           <ContentBoxDiv>
           <h1>참조은 Story</h1>
         <StyledSlider {...Albumsettings}>
+        
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
           
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
-          <TitleImgDiv>
-          <TitleImg src={sampleImg} alt="sampleImg" />
-          </TitleImgDiv>
+          
 
           
          
@@ -208,8 +210,6 @@ const StyledSlider = Styled(Slider)`
   display: flex;
  flex-direction: row;
  justify-content: space-around;
-
-
 
 `
 
