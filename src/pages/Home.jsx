@@ -165,6 +165,7 @@ const Albumsettings = {
 const WrapBox = Styled.div`
   width: 100%;
   padding-top: 48px;
+  overflow-x: hidden;
 `;
 
 const ContentBoxDiv = Styled.div`
