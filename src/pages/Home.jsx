@@ -9,10 +9,17 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import banner from "../banner.png";
+import sampleImg from "../sampleImg.png";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 
 function Home() {
-    
+  console.log("Clicked");
 
 const tableInfo = [
   {
@@ -46,41 +53,75 @@ const tableInfo = [
     user: "ㅇㅇㅇ목사님",
   },
 ];
+const Bannersettings = {
+  dots: true,
+      fade: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+};
+const Albumsettings = {
+  dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3
+};
 
   return (
     <>
     
       <WrapBox>
       <AppBar />
-<ContentBoxDiv>
-<BannerDiv>
-          <img src="banner.png" alt="banner" />
+
+        <div>
+        <Slider {...Bannersettings}>
+        <BannerDiv>
+          <BannerImg src={banner} alt="banner" />
         </BannerDiv>
-</ContentBoxDiv>
-        <ContentBoxDiv>
+          <div>
+            <h3>2</h3>
+          </div>
+         
+        </Slider>
+      </div>
+
+          <ContentBoxDiv>
           <h1>참조은 Story</h1>
-          <NextbuttonDiv>
-            <Nextbutton>이전</Nextbutton>
-            <Nextbutton>다음</Nextbutton>
-          </NextbuttonDiv>      
-          <StoryDiv>
+        <StyledSlider {...Albumsettings}>
+          
           <TitleImgDiv>
-            <TitleImg>대표사진</TitleImg>
+          <TitleImg src={sampleImg} alt="sampleImg" />
           </TitleImgDiv>
           <TitleImgDiv>
-            <TitleImg>대표사진</TitleImg>
+          <TitleImg src={sampleImg} alt="sampleImg" />
           </TitleImgDiv>
           <TitleImgDiv>
-            <TitleImg>대표사진</TitleImg>
+          <TitleImg src={sampleImg} alt="sampleImg" />
           </TitleImgDiv>
           <TitleImgDiv>
-            <TitleImg>대표사진</TitleImg>
+          <TitleImg src={sampleImg} alt="sampleImg" />
           </TitleImgDiv>
           <TitleImgDiv>
-            <TitleImg>대표사진</TitleImg>
+          <TitleImg src={sampleImg} alt="sampleImg" />
           </TitleImgDiv>
-          </StoryDiv>
-        </ContentBoxDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+          <TitleImgDiv>
+          <TitleImg src={sampleImg} alt="sampleImg" />
+          </TitleImgDiv>
+
+          
+         
+        </StyledSlider>
+        
+      </ContentBoxDiv>
+   
         <ContentBoxDiv>
           <h1>예배시간 안내</h1>
           <TableContainer component={Paper}>
@@ -127,33 +168,52 @@ const WrapBox = Styled.div`
 const ContentBoxDiv = Styled.div`
   margin-top: 6%;
   margin-bottom: 5%;
+  padding : 3%
 `;
 const BannerDiv = Styled.div`
+  display: flex;
   width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 `;
+const BannerImg = Styled.img`
+  width: 100%;
+`
 
 const TitleImgDiv = Styled.div`
   width:243px;
   height:177px;
-  background: skyblue;
-  margin:5px;
+  background: #ffffff;
+  margin:8px;
+  padding: 10px;
+  
 `;
-const TitleImg = Styled.div`
+const TitleImg = Styled.img`
   width:100%;
+  height:100%;
+  background:#bef950
+  
 `;
-const StoryDiv = Styled.div`
- display: flex;
- flex-direction: row;
- justify-content: space-between;
-`;
-const NextbuttonDiv = Styled.div`
-display: flex;
-justify-content: flex-end;
-padding: 5px;
 
-`;
-const Nextbutton = Styled.button`
-justify-content : center;
-`;
+// const NextbuttonDiv = Styled.div`
+// display: flex;
+// justify-content: flex-end;
+// padding: 5px;
+
+// `;
+// const Nextbutton = Styled.button`
+// justify-content : center;
+// `;
+const StyledSlider = Styled(Slider)`
+  display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+
+
+
+`
+
+
+
 export default Home;
 
