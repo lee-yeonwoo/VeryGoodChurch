@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import AppBar from "../components/AppBar";
 import TitleBox from '../components/TitleBox';
+import IterationSample from "../components/IterationSample";
 
 const Directions = () => {
   return (
@@ -9,10 +10,7 @@ const Directions = () => {
       <WrapBox>
       <TitleBox />
       <ContentBoxDiv>
-        <p>찾아오시는 길</p>
-      
-
-
+        <IterationSample/>
       </ContentBoxDiv>
         
       </WrapBox>
