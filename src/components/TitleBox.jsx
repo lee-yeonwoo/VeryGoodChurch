@@ -7,19 +7,21 @@ const TitleBox = () => {
         <h1>{Title}</h1>
         <Line></Line>
              </TitleBoxDiv>
-
     );
 };
 
 const TitleBoxDiv = styled.div`
+display: flex;
+justify-content: space-around,center;
+align-items: center;
   margin-top: 6%;
   margin-bottom: 5%;
   padding : 3%
 `;
 const Line = styled.div`
-  width: 1160px;
+width: 90%;
   height: 8px;
-  background-color: aliceblue;
+  background-color: #cbcbcb;
 
 `;
 

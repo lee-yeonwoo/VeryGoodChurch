@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import AppBar from "../components/AppBar";
 import TitleBox from '../components/TitleBox';
-import IterationSample from "../components/IterationSample";
 
 const Directions = () => {
   return (
@@ -10,7 +9,7 @@ const Directions = () => {
       <WrapBox>
       <TitleBox />
       <ContentBoxDiv>
-        <IterationSample/>
+
       </ContentBoxDiv>
         
       </WrapBox>

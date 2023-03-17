@@ -49,6 +49,7 @@ const AppBarDiv = styled.div`
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
+  background-color: white;
   font-size: calc(10px + 2vmin);
   color: black;
 `;

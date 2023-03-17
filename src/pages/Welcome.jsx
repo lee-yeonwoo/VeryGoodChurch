@@ -9,8 +9,8 @@ const Welcome = () => {
   const ChurchMainDiscription = "참조은 교회는 웃음지음을 목적하는 선교적교회입니다"
   const BibleDiscription = "하나님 보시기에 참좋은 교회가 되자!(창세기 1:31)"
   const SubDisctiption = "참조은교회는 ,수원제일교회나 창훈대교회와 같은 대한예수교장로회(합동) 소속이며 수원노회에 가입되어 있습니다"
-  const PersonDiscription = "총신대학교신학대학원(목회연구)과 백석대학교 상담대학원(가정사역 가족상담학)을 마치고 "
-  const MissionDiscription = "사명 소개글"
+  const PersonDiscription = "‘참조은교회’ 담임 임철민 목사님은 대한예수교장로회 창훈대교회(합동)에서 십여년간 사역하며 총신대학교신학대학원(목회연구)과 백석대학교 상담대학원(가정사역 가족상담학)을 마치고 미국 FULLER Theological Seminary에서 목회학 박사학위를 받았습니다. 현재 우만 2동 소재 ‘참조은교회’를 섬기며 ‘칼빈대학교’에서 겸임교수로 가정사역, 가족 치료, 선교적교회를 가르치고 있습니다."
+  const MissionDiscription = "참조은교회의 사명은 주님의 지상명령을 수행하며  깊은 곳에 가서 그물을 내려 복음을 전하며  가르쳐 지키게 함에 있습니다 (마태복음 28:19~20).참조은교회는 주님이 웃음지음을 목적하는 선교적 교회이며 성도들이 하나님 말씀을 배우며, 삶으로 응답하는 삶을 추구합니다."
   const SloganTitle = "S.M.I.L.E"
     return (
         <>
@@ -116,8 +116,10 @@ const ContentBoxDiv = Styled.div`
 const DiscriptionBox = Styled.div`
   width : 50%;
   height: 100%;
-  background-color : #b3ffcc;
+  background-color : #f5f5f5;
   margin: 4%;
+  overflow-wrap: break-word;
+  align-items: center;
 
 `
 
@@ -143,9 +145,8 @@ const SubSlogan = Styled.div`
   background-color : #f5f5f5;
 `
 const ProfileBox = Styled.div`
-    width: 20%;
-    height: 50%;
-    padding: 4%;
+    width: 15%;
+    height: 10%;
     margin: 3%;
 
 `
@@ -173,7 +174,7 @@ const CardBox = Styled.div`
 const Card = Styled.div`
   width:100%;
   height:100%;
-  background:#bef950
+  /* background:#bef950 */
   
 `;
 
