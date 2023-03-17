@@ -1,15 +1,22 @@
 import styled from "styled-components";
 import AppBar from "../components/AppBar";
 import TitleBox from '../components/TitleBox';
+import React from "react";
+
+
+import Kakao from "../components/Map"
+
 
 const Directions = () => {
+  
+  
   return (
     <>
     <AppBar />
       <WrapBox>
       <TitleBox />
       <ContentBoxDiv>
-
+      <Kakao />
       </ContentBoxDiv>
         
       </WrapBox>
@@ -27,5 +34,7 @@ margin-top: 6%;
     display: flex;
     /* justify-content: flex-end; */
 `;
+
+
 
 export default Directions;
