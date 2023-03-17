@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import AppBar from '../components/AppBar.jsx';
 import React from "react";
+import TitleBox from '../components/TitleBox';
 
 
 import Table from "@mui/material/Table";
@@ -51,7 +52,7 @@ const Time = () => {
         <AppBar />
         <WrapBox>
         <ContentBoxDiv>
-          <h1>예배시간 안내</h1>
+        <TitleBox />
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
@@ -90,6 +91,7 @@ const Time = () => {
 `;
 const ContentBoxDiv = styled.div`
 margin-top: 6%;
-margin-bottom: 5%;
+  margin-bottom: 5%;
+  padding : 3%
 `;
   export default Time;

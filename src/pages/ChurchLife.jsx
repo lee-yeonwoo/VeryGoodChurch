@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import AppBar from "../components/AppBar";
+import TitleBox from '../components/TitleBox';
+
 
 const ChurchLife = () => {
     return (
       <>
       <AppBar />
-        <WrapBox>
-          <h1>소개</h1>
-          <p>리액트 라우터를 사용해 보는 프로젝트입니다.</p>
-          <p>리액트 라우터를 사용해 보는 프로젝트입니다.</p><p>리액트 라우터를 사용해 보는 프로젝트입니다.</p><p>리액트 라우터를 사용해 보는 프로젝트입니다.</p><p>리액트 라우터를 사용해 보는 프로젝트입니다.</p>
-        </WrapBox>
+      <WrapBox>
+      <TitleBox />
+      <ContentBoxDiv>
+        <p>교회생활</p>
+      </ContentBoxDiv>
+        
+      </WrapBox>
       </>
     );
   };
@@ -17,5 +21,13 @@ const ChurchLife = () => {
   const WrapBox = styled.div`
     width: 100%;
   `;
+  const ContentBoxDiv = styled.div`
+  margin-top: 6%;
+      margin-bottom: 5%;
+      padding: 3%;
+      display: flex;
+      /* justify-content: flex-end; */
+  `;
+  
   
   export default ChurchLife;

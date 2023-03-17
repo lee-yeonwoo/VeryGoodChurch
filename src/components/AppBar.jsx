@@ -20,8 +20,7 @@ const AppBar = () => {
         onClick={() => {
           navigate("/welcome");
         }}
-        >환영합니다
-        </MenuDiv>
+        >환영합니다</MenuDiv>
         <MenuDiv
         onClick={() => {
           navigate("/time");
@@ -52,7 +51,6 @@ const AppBarDiv = styled.div`
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: black;
-  background-color: #ffb4b4;
 `;
 const LogoImgDiv = styled.div`
   display: flex;

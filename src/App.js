@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Route, Routes } from "react-router-dom";
-import Welcome from './pages/ChurchLife.jsx';
+import Welcome from './pages/Welcome';
 import Home from './pages/Home';
 import Time from './pages/Time';
 import Directions from './pages/Directions.jsx';
@@ -17,7 +17,7 @@ const App = () => {
       <Route path="/time" element={<Time />} />
       <Route path="/directions" element={<Directions />} />
       <Route path="/churchLife" element={<ChurchLife />} />
-      {/* <Route path="*" element={<NotFound />} /> */}
+      
     </Routes>
   
    
