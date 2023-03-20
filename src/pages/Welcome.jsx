@@ -44,9 +44,7 @@ const Welcome = () => {
     <ProfileImg src = {Profile} alt="church"/>
     <p>담임목사 임철민</p>
     </ProfileBox>
-  
   </FullDiscriptionBox>
-
 </ContentBoxDiv>
 
 
