@@ -19,6 +19,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "gray" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "gray" }}
+      onClick={onClick}
+    />
+  );
+}
+
 
 function Home() {
 
@@ -67,8 +89,11 @@ const Albumsettings = {
       infinite: true,
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 3
+      slidesToScroll: 3,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />
 };
+
 
   return (
     <>
