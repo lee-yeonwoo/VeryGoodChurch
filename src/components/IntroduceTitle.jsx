@@ -28,6 +28,7 @@ display: flex;
   font-size: 28px;
   float: left;
   font-weight: bold;
+  color : gray;
   cursor: pointer;
 
 `

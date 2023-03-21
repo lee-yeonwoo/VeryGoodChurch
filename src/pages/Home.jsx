@@ -19,18 +19,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-function SampleNextArrow(props) {
+function NextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "gray" }}
+      style={{ ...style, display: "block", background: "black" }}
       onClick={onClick}
     />
   );
 }
 
-function SamplePrevArrow(props) {
+function PrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
@@ -90,8 +90,8 @@ const Albumsettings = {
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 3,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />
 };
 
 
@@ -141,11 +141,6 @@ const Albumsettings = {
           <TitleImgDiv>
           <TitleImg src={sampleImg} alt="sampleImg" />
           </TitleImgDiv>
-          
-          
-
-          
-         
         </StyledSlider>
         
       </ContentBoxDiv>
@@ -225,20 +220,10 @@ const TitleImg = Styled.img`
 `;
 
 
-// const NextbuttonDiv = Styled.div`
-// display: flex;
-// justify-content: flex-end;
-// padding: 5px;
-
-// `;
-// const Nextbutton = Styled.button`
-// justify-content : center;
-// `;
 const StyledSlider = Styled(Slider)`
   display: flex;
  flex-direction: row;
  justify-content: space-around;
-
 `
 
 
