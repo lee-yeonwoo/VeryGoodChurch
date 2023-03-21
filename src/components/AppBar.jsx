@@ -56,8 +56,8 @@ const AppBarDiv = styled.div`
 const LogoImgDiv = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 30%;
-  height: 30%;
+  width: auto;
+  height: 50px;
   padding:20px;
   cursor: pointer;
 `;
