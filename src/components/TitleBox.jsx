@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-const TitleBox = () => {
-    const Title = "환영합니다"
+const TitleBox = (props) => {
     return (
         <TitleBoxDiv>
-        <h1>{Title}</h1>
+        <h1>{props.miniTitle}</h1>
         <Line></Line>
              </TitleBoxDiv>
     );

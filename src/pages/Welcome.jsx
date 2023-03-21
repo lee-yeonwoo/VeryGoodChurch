@@ -17,7 +17,7 @@ const Welcome = () => {
         <>
         <AppBar />
         <WrapBox>
-     <TitleBox />
+        <TitleBox miniTitle = "환영합니다"></TitleBox>
 
 
      {/* 교회설명 */}

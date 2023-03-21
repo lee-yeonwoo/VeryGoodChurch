@@ -5,7 +5,6 @@ import TitleBox from '../components/TitleBox';
 import React from "react";
 import phone from "../phone.png";
 
-
 import Kakao from "../components/Map"
 
 
@@ -16,7 +15,7 @@ const Directions = () => {
     <>
     <AppBar />
       <WrapBox>
-      <TitleBox />
+      <TitleBox miniTitle = "찾아오시는 길"></TitleBox>
       <ContentBoxDiv>
       <Kakao/>
       </ContentBoxDiv>

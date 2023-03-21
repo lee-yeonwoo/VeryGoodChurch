@@ -53,7 +53,7 @@ const Time = () => {
         <AppBar />
         <WrapBox>
         <ContentBoxDiv>
-        <TitleBox />
+        <TitleBox miniTitle = "예배 시간"></TitleBox>
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
