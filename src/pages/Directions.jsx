@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AppBar from "../components/AppBar";
+import Footer from "../components/Footer";
 import TitleBox from '../components/TitleBox';
 import React from "react";
 import phone from "../phone.png";
@@ -52,7 +53,7 @@ const Directions = () => {
 
 
       </BusInfoBoxDiv>
-        
+      <Footer />
       </WrapBox>
     </>
   );

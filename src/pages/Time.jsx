@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AppBar from '../components/AppBar.jsx';
+import Footer from "../components/Footer.jsx";
 import React from "react";
 import TitleBox from '../components/TitleBox';
 
@@ -81,6 +82,7 @@ const Time = () => {
             </Table>
           </TableContainer>
         </ContentBoxDiv>
+        <Footer />
         </WrapBox>
       </>
     );

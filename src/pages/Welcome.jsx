@@ -1,5 +1,6 @@
 import Styled from "styled-components";
 import AppBar from '../components/AppBar';
+import Footer from '../components/Footer';
 import TitleBox from '../components/TitleBox';
 import IntroduceTitle from "../components/IntroduceTitle";
 import churchImg from "../sample.png";
@@ -86,6 +87,7 @@ const Welcome = () => {
   </CardBoxList>
   
 </ContentBoxDiv>
+<Footer />
         </WrapBox>
       </>
     );

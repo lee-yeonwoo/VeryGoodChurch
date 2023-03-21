@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AppBar from "../components/AppBar";
+import Footer from "../components/Footer";
 import TitleBox from '../components/TitleBox';
 
 
@@ -12,7 +13,7 @@ const ChurchLife = () => {
       <ContentBoxDiv>
         <p>교회생활</p>
       </ContentBoxDiv>
-        
+      <Footer />
       </WrapBox>
       </>
     );

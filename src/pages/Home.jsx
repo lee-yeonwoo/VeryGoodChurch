@@ -1,6 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
 import AppBar from '../components/AppBar';
+import Footer from '../components/Footer';
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,6 +13,7 @@ import Paper from "@mui/material/Paper";
 import banner from "../banner.png";
 import sampleImg from "../sampleImg.png";
 
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,7 +21,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 function Home() {
-  console.log("Clicked");
 
 const tableInfo = [
   {
@@ -154,10 +155,10 @@ const Albumsettings = {
             </Table>
           </TableContainer>
         </ContentBoxDiv>
-        <ContentBoxDiv>
-          <h1>참조은교회의 푸터영역</h1>
-        </ContentBoxDiv>
+        <Footer />
+        
       </WrapBox>
+      
     </>
   );
 }
@@ -197,6 +198,7 @@ const TitleImg = Styled.img`
   background:#bef950
   
 `;
+
 
 // const NextbuttonDiv = Styled.div`
 // display: flex;
