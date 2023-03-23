@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
 
-const IntroduceTitle = () => {
+const IntroduceTitle = (props) => {
     return (
         <>
         <MiniTitleBoxDiv>
-            <MiniMenuListDiv>
-                <MiniMenuDiv>담임 목사님 소개</MiniMenuDiv>
-                <MiniMenuDiv>참조은 교회의 사명</MiniMenuDiv>
-                <MiniMenuDiv>슬로건</MiniMenuDiv>
-            </MiniMenuListDiv>
+                <MiniMenuDiv>{props.miniMenu}</MiniMenuDiv>
         </MiniTitleBoxDiv>
         </>
     );
@@ -17,12 +13,13 @@ const IntroduceTitle = () => {
 
 
 const MiniTitleBoxDiv = styled.div`
+display: flex;
+justify-content: center;
 width : 100%;
 height: 50px;
 
 `
 const MiniMenuDiv = styled.div`
-display: flex;
   font-size: 20px;
   padding: 10px;
   font-size: 28px;
@@ -32,12 +29,5 @@ display: flex;
   cursor: pointer;
 
 `
-const MiniMenuListDiv = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin: 30px;
-  margin-top: 40px;
-`;
-
 
 export default IntroduceTitle;

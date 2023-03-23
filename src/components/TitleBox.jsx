@@ -11,16 +11,17 @@ const TitleBox = (props) => {
 
 const TitleBoxDiv = styled.div`
 display: flex;
-justify-content: space-around,center;
+justify-content:center;
+flex-direction: column;
 align-items: center;
   margin-top: 6%;
   margin-bottom: 5%;
   padding : 3%
 `;
 const Line = styled.div`
-width: 90%;
-  height: 8px;
-  background-color: #cbcbcb;
+width: 15%;
+  height: 2px;
+  background-color: #B7D7AF;
 
 `;
 

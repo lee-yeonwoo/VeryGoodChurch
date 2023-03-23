@@ -49,7 +49,5 @@ const Logo2Img = Styled.img`
 
 const FooterLabel = Styled.label`
 color: white;
-
-
 `
 export default Footer;

@@ -10,7 +10,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import banner from "../banner.png";
+import banner1 from "../banner.png";
+import banner2 from "../banner2.png";
 import sampleImg from "../sampleImg.png";
 
 
@@ -104,11 +105,11 @@ const Albumsettings = {
         <div>
         <Slider {...Bannersettings}>
         <BannerDiv>
-          <BannerImg src={banner} alt="banner" />
+          <BannerImg src={banner1} alt="banner" />
         </BannerDiv>
-          <div>
-            <h3>2</h3>
-          </div>
+        <BannerDiv>
+          <BannerImg src={banner2} alt="banner" />
+        </BannerDiv>
          
         </Slider>
       </div>
@@ -215,8 +216,7 @@ const TitleImgDiv = Styled.div`
 const TitleImg = Styled.img`
   width:100%;
   height:100%;
-  background:#bef950
-  filter : brightness(50%);
+
 `;
 
 

@@ -8,7 +8,7 @@ import Card from "../components/Card";
 
 
 const ChurchLife = () => {
-  const titles = ["title1","title2","title3","title4","title5","title6","title7","title8"]
+  const titles = ["title1","title2","title3","title4","title5","title6","title7","title8","title8"]
     const titleList = titles.map((title)=>(<Card title={title}/>))
     return (
       <>
