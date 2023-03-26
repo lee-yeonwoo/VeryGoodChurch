@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-function Pagination({ total, limit, page, setPage }) {
+function Pagination({ total, page, setPage }) {
+  const limit = 10;
   const numPages = Math.ceil(total / limit);
-
   return (
     <>
       <Nav>

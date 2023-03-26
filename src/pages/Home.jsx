@@ -25,7 +25,7 @@ function NextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "black" }}
+      style={{ ...style, display: "block", color: "black" }}
       onClick={onClick}
     />
   );
@@ -224,6 +224,7 @@ const StyledSlider = Styled(Slider)`
   display: flex;
  flex-direction: row;
  justify-content: space-around;
+ color:black;
 `
 
 
