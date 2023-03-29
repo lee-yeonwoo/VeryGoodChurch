@@ -2,17 +2,11 @@ import React from "react";
 import Styled from "styled-components";
 import AppBar from '../components/AppBar';
 import Footer from '../components/Footer';
+import TimeTable from "../components/TimeTable";
 
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+
 import banner1 from "../banner.png";
 import banner2 from "../banner2.png";
-import sampleImg from "../sampleImg.png";
 
 
 import Slider from "react-slick";
@@ -25,42 +19,13 @@ import "slick-carousel/slick/slick-theme.css";
 
 function Home() {
 
-const tableInfo = [
-  {
-    name: "주일예배",
-    time: "오전9시",
-    location: "본당",
-    user: "ㅇㅇㅇ목사님",
-  },
-  {
-    name: "수요예배",
-    time: "오전9시",
-    location: "본당",
-    user: "ㅇㅇㅇ목사님",
-  },
-  {
-    name: "금요철야",
-    time: "오전9시",
-    location: "본당",
-    user: "ㅇㅇㅇ목사님",
-  },
-  {
-    name: "어린이예배",
-    time: "오전9시",
-    location: "본당",
-    user: "ㅇㅇㅇ목사님",
-  },
-  {
-    name: "새벽예배",
-    time: "오전9시",
-    location: "본당",
-    user: "ㅇㅇㅇ목사님",
-  },
-];
+
 const Bannersettings = {
-  dots: true,
+      dots: true,
       fade: true,
       infinite: true,
+      autoplay: true, //자동 재생 할 것인지
+      autoplaySpeed: 5000,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1
@@ -98,9 +63,51 @@ const albumSettings = {
   ]
 }
 
-const albumDatalength = 9
+// ------bannerData-------------------
 
+const bannerImgData = [
+  {
+    id:1,
+    img:"배너이미지1"
+  },
+  {
+    id:2,
+    img:"배너이미지2"
+  }
 
+]
+// -------albumData-------------------
+const homeAlbumData = [
+  {
+    id: 1,
+    imgUrl: "https://minio.nculture.org/amsweb-opt/multimedia_assets/98/29780/14526/c/%EC%95%88%EB%8F%99_%EC%95%88%EB%8F%99%EA%B5%90%ED%9A%8C%EC%98%88%EB%B0%B0%EB%8B%B92%EC%B8%B5_20191104_171920_01-medium-size.jpg",
+    linkUrl:"https://blog.naver.com/goodchurch9006/223043920058"
+  },
+  {
+    id: 2,
+    imgUrl: "http://www.christianreview.com.au/imgdata/christianreview_com_au/202111/2021112946195938.jpg",
+    linkUrl:"http://www.christianreview.com.au/7617"
+  },
+  {
+    id: 3,
+    imgUrl: "https://www.light-of-truth.org/wp-content/uploads/2019/03/who-is-Jesus.jpg",
+    linkUrl:"https://blog.naver.com/goodchurch9006/223041710330"
+  },
+  {
+    id: 4,
+    imgUrl: "/4",
+    linkUrl:"https://blog.naver.com/goodchurch9006/223041694325"
+  },
+  {
+    id: 5,
+    imgUrl: "https://www.logoyogo.com/web/wp-content/uploads/edd/2021/04/logoyogo-1-119.jpg",
+    linkUrl:"https://blog.naver.com/goodchurch9006/223041688731"
+  },
+]
+
+const handleButtonClick = (linkUrl) => {
+  window.location.href = linkUrl;
+};
   return (
     <>
     
@@ -122,46 +129,21 @@ const albumDatalength = 9
           <ContentBoxDiv>
           <h1>참조은 Story</h1>
         <StyledSlider {...albumSettings}>
-        {Array.from({length: albumDatalength},(v,i) =>
-        <TitleImgDiv >
-          <TitleImg src={sampleImg} alt="sampleImg" />
+        {homeAlbumData.map((id,linkUrl,imgUrl) => (
+          <TitleImgDiv key={id} 
+        onClick={() => handleButtonClick(id.linkUrl)}>
+          <TitleImg src={id.imgUrl} alt="sampleImg" />
           </TitleImgDiv>
-        )}
+        ))}
         </StyledSlider>
         
       </ContentBoxDiv>
-
-
-        <ContentBoxDiv>
-          <h1>예배시간 안내</h1>
-          <TableContainer component={Paper}>
-            <Table aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>구분</TableCell>
-                  <TableCell align="right">예배시간</TableCell>
-                  <TableCell align="right">예배장소</TableCell>
-                  <TableCell align="right">담당교역자</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {tableInfo.map((row) => (
-                  <TableRow
-                    key={row.name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.time}</TableCell>
-                    <TableCell align="right">{row.location}</TableCell>
-                    <TableCell align="right">{row.user}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </ContentBoxDiv>
+      <ContentBoxDiv>
+      <h1>예배시간 안내</h1>
+      <TimeTable />
+      </ContentBoxDiv>
+      
+      
         <Footer />
         
       </WrapBox>
@@ -199,11 +181,21 @@ const TitleImgDiv = Styled.div`
     flex-direction: row; */
     margin:2px;
     padding: 2px;
+    display: inline-block;
+    width: 150px;
+    height: 230px;
+    overflow: hidden;
   
 `;
 const TitleImg = Styled.img`
-width: 95%;
-  height: 100%;
+/* width: 95%;
+  height: 100%; */
+  display: inline-block;
+    width: 95%;
+    height: 230px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 5px;
 
 `;
 
