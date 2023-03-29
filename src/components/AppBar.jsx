@@ -36,6 +36,8 @@ const AppBar = () => {
           navigate("/churchLife");
         }}
         >교회 생활</MenuDiv>
+
+
       </CoreMenuListDiv>
     </AppBarDiv>
   );
@@ -45,7 +47,7 @@ const AppBarDiv = styled.div`
   top:0;
   z-index:10;
   width: 100%;
-  min-height: 100px;
+  /* min-height: 10%; */
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
@@ -70,7 +72,7 @@ const CoreMenuListDiv = styled.div`
   margin-top: 40px;
 `;
 const MenuDiv = styled.div`
-   display: flex;
+   /* display: flex; */
   font-size: 20px;
   padding: 10px;
   font-size: 18px;
@@ -78,6 +80,7 @@ const MenuDiv = styled.div`
   font-weight: bold;
   cursor: pointer;
 `;
+
 
 
 
