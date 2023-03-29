@@ -1,157 +1,149 @@
 import React from "react";
 import Styled from "styled-components";
-import AppBar from '../components/AppBar';
-import Footer from '../components/Footer';
+import AppBar from "../components/AppBar";
+import Footer from "../components/Footer";
 import TimeTable from "../components/TimeTable";
-
-
-import banner1 from "../banner.png";
-import banner2 from "../banner2.png";
-
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
-
-
+import axios from "axios";
 
 function Home() {
+  const Bannersettings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    autoplay: true, //자동 재생 할 것인지
+    autoplaySpeed: 5000,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+  const albumSettings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: <StyledPrevArrow />,
+    nextArrow: <StyledNextArrow />,
 
+    responsive: [
+      // 반응형 웹 구현 옵션
+      {
+        breakpoint: 1024, //화면 사이즈 960px일 때
+        settings: {
+          //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 800, //화면 사이즈 768px일 때
+        settings: {
+          //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480, //화면 사이즈 768px일 때
+        settings: {
+          //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
-const Bannersettings = {
-      dots: true,
-      fade: true,
-      infinite: true,
-      autoplay: true, //자동 재생 할 것인지
-      autoplaySpeed: 5000,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-};
-const albumSettings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  prevArrow : <StyledPrevArrow/>,
-  nextArrow : <StyledNextArrow/>,
- 
-  responsive: [ // 반응형 웹 구현 옵션
-  {  
-    breakpoint: 1024, //화면 사이즈 960px일 때
-    settings: {
-      //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
-      slidesToShow:3
-    } 
-  },
-  { 
-    breakpoint: 800, //화면 사이즈 768px일 때
-    settings: {	
-      //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
-      slidesToShow:2
-    }
-  },
-  { 
-    breakpoint: 480, //화면 사이즈 768px일 때
-    settings: {	
-      //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
-      slidesToShow:1
-    }
-  }
-  ]
-}
+  // const bannerList = [
+  //   {
+  //     id: 1,
+  //     imagePath: "https://user-images.githubusercontent.com/73478057/228507881-bae1d9d7-76e1-4f16-b842-d520eb4ec210.png",
+  //   },
+  //   {
+  //     id: 2,
+  //     imagePath: "https://user-images.githubusercontent.com/73478057/228507767-08991c13-82dd-4cb1-a429-00a4aba779a7.png",
+  //   },
+  // ];
 
-// ------bannerData-------------------
+  let bannerList = []
 
-const bannerImgData = [
-  {
-    id:1,
-    img:"배너이미지1"
-  },
-  {
-    id:2,
-    img:"배너이미지2"
-  }
+  const homeAlbumData = [
+    {
+      id: 1,
+      imgUrl:
+        "https://minio.nculture.org/amsweb-opt/multimedia_assets/98/29780/14526/c/%EC%95%88%EB%8F%99_%EC%95%88%EB%8F%99%EA%B5%90%ED%9A%8C%EC%98%88%EB%B0%B0%EB%8B%B92%EC%B8%B5_20191104_171920_01-medium-size.jpg",
+      linkUrl: "https://blog.naver.com/goodchurch9006/223043920058",
+    },
+    {
+      id: 2,
+      imgUrl:
+        "http://www.christianreview.com.au/imgdata/christianreview_com_au/202111/2021112946195938.jpg",
+      linkUrl: "http://www.christianreview.com.au/7617",
+    },
+    {
+      id: 3,
+      imgUrl:
+        "https://www.light-of-truth.org/wp-content/uploads/2019/03/who-is-Jesus.jpg",
+      linkUrl: "https://blog.naver.com/goodchurch9006/223041710330",
+    },
+    {
+      id: 4,
+      imgUrl: "/4",
+      linkUrl: "https://blog.naver.com/goodchurch9006/223041694325",
+    },
+    {
+      id: 5,
+      imgUrl:
+        "https://www.logoyogo.com/web/wp-content/uploads/edd/2021/04/logoyogo-1-119.jpg",
+      linkUrl: "https://blog.naver.com/goodchurch9006/223041688731",
+    },
+  ];
 
-]
-// -------albumData-------------------
-const homeAlbumData = [
-  {
-    id: 1,
-    imgUrl: "https://minio.nculture.org/amsweb-opt/multimedia_assets/98/29780/14526/c/%EC%95%88%EB%8F%99_%EC%95%88%EB%8F%99%EA%B5%90%ED%9A%8C%EC%98%88%EB%B0%B0%EB%8B%B92%EC%B8%B5_20191104_171920_01-medium-size.jpg",
-    linkUrl:"https://blog.naver.com/goodchurch9006/223043920058"
-  },
-  {
-    id: 2,
-    imgUrl: "http://www.christianreview.com.au/imgdata/christianreview_com_au/202111/2021112946195938.jpg",
-    linkUrl:"http://www.christianreview.com.au/7617"
-  },
-  {
-    id: 3,
-    imgUrl: "https://www.light-of-truth.org/wp-content/uploads/2019/03/who-is-Jesus.jpg",
-    linkUrl:"https://blog.naver.com/goodchurch9006/223041710330"
-  },
-  {
-    id: 4,
-    imgUrl: "/4",
-    linkUrl:"https://blog.naver.com/goodchurch9006/223041694325"
-  },
-  {
-    id: 5,
-    imgUrl: "https://www.logoyogo.com/web/wp-content/uploads/edd/2021/04/logoyogo-1-119.jpg",
-    linkUrl:"https://blog.naver.com/goodchurch9006/223041688731"
-  },
-]
+  const handleButtonClick = (linkUrl) => {
+    window.location.href = linkUrl;
+  };
 
-const handleButtonClick = (linkUrl) => {
-  window.location.href = linkUrl;
-};
   return (
     <>
-    
       <WrapBox>
-      <AppBar />
+        <AppBar />
 
         <div>
-        <Slider {...Bannersettings}>
-        <BannerDiv>
-          <BannerImg src={banner1} alt="banner" />
-        </BannerDiv>
-        <BannerDiv>
-          <BannerImg src={banner2} alt="banner" />
-        </BannerDiv>
-         
-        </Slider>
-      </div>
+          <Slider {...Bannersettings}>
+            {
+              bannerList.map((banner) => {
+                return (
+                  <BannerDiv>
+                    <BannerImg src={banner.imagePath} alt="banner" />
+                  </BannerDiv>
+                )
+              })
+            }
+          </Slider>
+        </div>
 
-          <ContentBoxDiv>
+        <ContentBoxDiv>
           <h1>참조은 Story</h1>
-        <StyledSlider {...albumSettings}>
-        {homeAlbumData.map((id,linkUrl,imgUrl) => (
-          <TitleImgDiv key={id} 
-        onClick={() => handleButtonClick(id.linkUrl)}>
-          <TitleImg src={id.imgUrl} alt="sampleImg" />
-          </TitleImgDiv>
-        ))}
-        </StyledSlider>
-        
-      </ContentBoxDiv>
-      <ContentBoxDiv>
-      <h1>예배시간 안내</h1>
-      <TableBoxDiv>
-      <TimeTable />
-      </TableBoxDiv>
+          <StyledSlider {...albumSettings}>
+            {homeAlbumData.map((item) => (
+              <TitleImgDiv
+                key={item.id}
+                onClick={() => handleButtonClick(item.linkUrl)}
+              >
+                <TitleImg src={item.imgUrl} alt="sampleImg" />
+              </TitleImgDiv>
+            ))}
+          </StyledSlider>
+        </ContentBoxDiv>
+        <ContentBoxDiv>
+          <h1>예배시간 안내</h1>
+          <TableBoxDiv>
+            <TimeTable />
+          </TableBoxDiv>
+        </ContentBoxDiv>
 
-      </ContentBoxDiv>
-      
-      
-      
         <Footer />
-        
       </WrapBox>
-      
     </>
   );
 }
@@ -165,7 +157,7 @@ const WrapBox = Styled.div`
 const ContentBoxDiv = Styled.div`
   margin-top: 6%;
   margin-bottom: 5%;
-  padding : 3%
+  padding : 3%;
 `;
 const BannerDiv = Styled.div`
   display: flex;
@@ -175,7 +167,7 @@ const BannerDiv = Styled.div`
 const BannerImg = Styled.img`
   width: 100%;
   height: 100%;
-`
+`;
 
 const TitleImgDiv = Styled.div`
    /* display: flex;
@@ -203,7 +195,6 @@ const TitleImg = Styled.img`
 
 `;
 
-
 const StyledSlider = Styled(Slider)`
   display: flex;
  flex-direction: row;
@@ -213,7 +204,7 @@ const StyledSlider = Styled(Slider)`
 
  `;
 
- const StyledPrevArrow = Styled.div`
+const StyledPrevArrow = Styled.div`
   position: absolute;
   margin-left: 11px;
   z-index: 3;
@@ -248,8 +239,6 @@ const StyledNextArrow = Styled.div`
 const TableBoxDiv = Styled.div`
   display:flex;
   justify-content: space-around;
-`
-
+`;
 
 export default Home;
-

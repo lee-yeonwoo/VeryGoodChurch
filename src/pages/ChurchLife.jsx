@@ -2,112 +2,149 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import AppBar from "../components/AppBar";
 import Footer from "../components/Footer";
-import TitleBox from '../components/TitleBox';
+import TitleBox from "../components/TitleBox";
 
 import axios from "axios";
+import { AssuredWorkloadSharp } from "@mui/icons-material";
 
+const tempBlogs = [
+  { 
+    id: 1, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 2, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 3, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 4, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 5, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 6, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 7, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 8, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+  { 
+    id: 9, 
+    title: "title1", 
+    thumbnailUrl: "https://user-images.githubusercontent.com/73478057/228513985-214e4c02-b6e9-42bf-9cfb-743dbde6258c.png",
+  },
+]
 
 function ChurchLife() {
-  const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [page,setPage] = useState(1);
-  const limit = 9;
-  const maxNumPage = 10;
-  const offset = (page - 1) * limit;
+  const [blogs, setBlogs] = useState([]);
+  const [page, setPage] = useState(1);
+  const [maxNumPage, setMaxNumPage] = useState(0);
 
-  
-    const fetchBlogData = async () => {
-      
-      try {
-        setError(null);
-        setPhotos(null);
-        setLoading(true);
-        const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/photos"
-        );
-        setPhotos(response.data);
-        
+  const getMaxPage = async () => {
+    // TODO: getMaxPage api needed
+    const tempMax = 10
+    setMaxNumPage(tempMax)
+  };
 
-      } catch (e) {
-        setError(e)
-      }
-      setLoading(false);
-    };
+  const getBlogs = async (page) => {
+    // TODO: getBlogs api needed
+    setBlogs([...tempBlogs])
+  };
 
-    useEffect(() => {
-      fetchBlogData();
+  useEffect(() => {
+    if (page !== undefined && page !== null && page >= 1) {
+      getBlogs(page);
+    }
+  }, [page]);
+
+  useEffect(() => {
+    getMaxPage();
   }, []);
-  
-  if (loading) return <div>로딩중</div>;
-  if (error) return <div>에러가 발생했습니다</div>
-  if (!photos) return null;
-  
+
   return (
-    
     <WrapBox>
       <AppBar />
-      <TitleBox miniTitle = "교회생활"></TitleBox>
+      <TitleBox miniTitle="교회생활"></TitleBox>
       <CardListBoxDiv>
-        {photos.slice(offset,offset+limit).map(({ id, title, thumbnailUrl }) => (
-          <CardDiv key={id}>
-            <Title>
-              {id}. {title}
-            </Title>
-            <img src = {thumbnailUrl} alt = "samlple" ></img>
-            <BorderLine></BorderLine>
-          </CardDiv>
-        ))}
-        
+        {blogs.map(({ id, title, thumbnailUrl }) => (
+            <CardDiv key={id}>
+              <Title>
+                {id}. {title}
+              </Title>
+              <img src={thumbnailUrl} alt="samlple"></img>
+              <BorderLine></BorderLine>
+            </CardDiv>
+          ))}
       </CardListBoxDiv>
       <Nav>
-        {Array.from({length: maxNumPage}, (v, i) => 
-          <Button onClick={()=> { setPage(); fetchBlogData(); }}>
-           {i+1}
+        {Array.from({ length: maxNumPage }, (v, i) => (
+          <Button
+            onClick={() => {
+              setPage(i + 1);
+            }}
+          >
+            {i + 1}
           </Button>
-        )}
-        </Nav>
+        ))}
+      </Nav>
       <Footer />
     </WrapBox>
-    
   );
 }
 export default ChurchLife;
 
-  const WrapBox = styled.div`
+const WrapBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 100%;
 `;
 const CardDiv = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-position: relative;
-width: 30%;
-height: 30%;
-margin-bottom: 20px;
-background-color: #dddddd;
-cursor: pointer;
-`
-
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 30%;
+  height: 30%;
+  margin-bottom: 20px;
+  background-color: #dddddd;
+  cursor: pointer;
+`;
 
 const Title = styled.label`
-position: absolute;
-color: white;
-z-index: 1000;
-font-weight: bold;
-font-size: 100%;
-`
-const BorderLine = styled.div `
-width: 80%;
-height: 80%;
-position: absolute;
-border: 3px solid white;
-`
-  const CardListBoxDiv = styled.div`
+  position: absolute;
+  color: white;
+  z-index: 1000;
+  font-weight: bold;
+  font-size: 100%;
+`;
+const BorderLine = styled.div`
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  border: 3px solid white;
+`;
+const CardListBoxDiv = styled.div`
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -116,10 +153,10 @@ border: 3px solid white;
   align-items: baseline;
   align-content: space-between;
   margin-bottom: 5%;
-  padding : 3%
-  `
+  padding: 3%;
+`;
 
-  const Nav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
