@@ -60,7 +60,7 @@ const LogoImgDiv = styled.div`
   justify-content: flex-start;
   width: auto;
   height: 50px;
-  padding:20px;
+  padding:30px;
   cursor: pointer;
 `;
 

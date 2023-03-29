@@ -15,8 +15,8 @@ const Time = () => {
         <>
         <AppBar />
         <WrapBox>
-        <ContentBoxDiv>
         <TitleBox miniTitle = "예배 시간"></TitleBox>
+        <ContentBoxDiv>
         <TimeTable />
         </ContentBoxDiv>
         <Footer />
@@ -29,8 +29,9 @@ const Time = () => {
   width: 100%;
 `;
 const ContentBoxDiv = styled.div`
-margin-top: 6%;
-  margin-bottom: 5%;
-  padding : 3%
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 20%;
+ 
 `;
   export default Time;

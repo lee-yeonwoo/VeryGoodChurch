@@ -15,9 +15,9 @@ const TitleBoxDiv = styled.div`
   justify-content:center;
   flex-direction: column;
   align-items: center;
-  margin-top: 6%;
-  margin-bottom: 5%;
-  padding : 3%
+  margin-top: 5%;
+  margin-bottom: 2%;
+  padding : 1%
 `;
 const Line = styled.div`
   width: 15%;

@@ -140,8 +140,12 @@ const handleButtonClick = (linkUrl) => {
       </ContentBoxDiv>
       <ContentBoxDiv>
       <h1>예배시간 안내</h1>
+      <TableBoxDiv>
       <TimeTable />
+      </TableBoxDiv>
+
       </ContentBoxDiv>
+      
       
       
         <Footer />
@@ -167,10 +171,10 @@ const BannerDiv = Styled.div`
   display: flex;
   width: 100%;
   margin-top: 5%;
-  margin-bottom: 5%;
 `;
 const BannerImg = Styled.img`
   width: 100%;
+  height: 100%;
 `
 
 const TitleImgDiv = Styled.div`
@@ -241,7 +245,10 @@ const StyledNextArrow = Styled.div`
     margin-left: 10px;
   }
 `;
-
+const TableBoxDiv = Styled.div`
+  display:flex;
+  justify-content: space-around;
+`
 
 
 export default Home;

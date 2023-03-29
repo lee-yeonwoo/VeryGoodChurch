@@ -45,12 +45,12 @@ const TimeTable = () => {
 
 
 return (
-    <div>
+    <Box>
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>구분</TableCell>
+            <TableCell align="right">구분</TableCell>
             <TableCell align="right">예배시간</TableCell>
             <TableCell align="right">예배장소</TableCell>
             <TableCell align="right">담당교역자</TableCell>
@@ -62,7 +62,7 @@ return (
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="right">
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.time}</TableCell>
@@ -73,11 +73,15 @@ return (
         </TableBody>
       </Table>
     </TableContainer>
-  </div>
+  </Box>
 
 
 );
 };
+
+const Box = Styled.div`
+    width:60%;
+`
 
 
 
