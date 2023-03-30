@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import TitleBox from "../components/TitleBox";
 
 import axios from "axios";
-import { AssuredWorkloadSharp } from "@mui/icons-material";
 
 const tempBlogs = [
   { 

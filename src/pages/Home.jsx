@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styled from "styled-components";
 import AppBar from "../components/AppBar";
 import Footer from "../components/Footer";
@@ -7,9 +7,78 @@ import TimeTable from "../components/TimeTable";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import axios from "axios";
+// import axios from "axios";
+
+const homeAlbumList = [
+  {
+    id: 1,
+    imgUrl:
+      "https://minio.nculture.org/amsweb-opt/multimedia_assets/98/29780/14526/c/%EC%95%88%EB%8F%99_%EC%95%88%EB%8F%99%EA%B5%90%ED%9A%8C%EC%98%88%EB%B0%B0%EB%8B%B92%EC%B8%B5_20191104_171920_01-medium-size.jpg",
+    linkUrl: "https://blog.naver.com/goodchurch9006/223043920058",
+  },
+  {
+    id: 2,
+    imgUrl:
+      "http://www.christianreview.com.au/imgdata/christianreview_com_au/202111/2021112946195938.jpg",
+    linkUrl: "http://www.christianreview.com.au/7617",
+  },
+  {
+    id: 3,
+    imgUrl:
+      "https://www.light-of-truth.org/wp-content/uploads/2019/03/who-is-Jesus.jpg",
+    linkUrl: "https://blog.naver.com/goodchurch9006/223041710330",
+  },
+  {
+    id: 4,
+    imgUrl: "/4",
+    linkUrl: "https://blog.naver.com/goodchurch9006/223041694325",
+  },
+  {
+    id: 5,
+    imgUrl:
+      "https://www.logoyogo.com/web/wp-content/uploads/edd/2021/04/logoyogo-1-119.jpg",
+    linkUrl: "https://blog.naver.com/goodchurch9006/223041688731",
+  },
+];
+
+const bannerList = [
+  {
+    id: 1,
+    imagePath: "https://user-images.githubusercontent.com/73478057/228507881-bae1d9d7-76e1-4f16-b842-d520eb4ec210.png",
+  },
+  {
+    id: 2,
+    imagePath: "https://user-images.githubusercontent.com/73478057/228507767-08991c13-82dd-4cb1-a429-00a4aba779a7.png",
+  },
+];
+
+
 
 function Home() {
+  const [banners,setBanners] = useState([]);
+  const [storys,setStorys] = useState([banners]);
+  
+  const getBanners = async() => {
+    setBanners([...bannerList])
+  };
+
+    const getStorys = async() => {
+    setStorys([...homeAlbumList])
+    console.log("아니 이거 실행되고 있는ㄱ ㅓ맞냐고 🤬")
+  };
+
+
+
+  useEffect(() => {
+    getBanners();
+    getStorys();
+  }, []);  
+    
+  const handleButtonClick = (linkUrl) => {
+    window.location.href = linkUrl;
+  };
+
+  
   const Bannersettings = {
     dots: true,
     fade: true,
@@ -54,70 +123,20 @@ function Home() {
     ],
   };
 
-  // const bannerList = [
-  //   {
-  //     id: 1,
-  //     imagePath: "https://user-images.githubusercontent.com/73478057/228507881-bae1d9d7-76e1-4f16-b842-d520eb4ec210.png",
-  //   },
-  //   {
-  //     id: 2,
-  //     imagePath: "https://user-images.githubusercontent.com/73478057/228507767-08991c13-82dd-4cb1-a429-00a4aba779a7.png",
-  //   },
-  // ];
-
-  let bannerList = []
-
-  const homeAlbumData = [
-    {
-      id: 1,
-      imgUrl:
-        "https://minio.nculture.org/amsweb-opt/multimedia_assets/98/29780/14526/c/%EC%95%88%EB%8F%99_%EC%95%88%EB%8F%99%EA%B5%90%ED%9A%8C%EC%98%88%EB%B0%B0%EB%8B%B92%EC%B8%B5_20191104_171920_01-medium-size.jpg",
-      linkUrl: "https://blog.naver.com/goodchurch9006/223043920058",
-    },
-    {
-      id: 2,
-      imgUrl:
-        "http://www.christianreview.com.au/imgdata/christianreview_com_au/202111/2021112946195938.jpg",
-      linkUrl: "http://www.christianreview.com.au/7617",
-    },
-    {
-      id: 3,
-      imgUrl:
-        "https://www.light-of-truth.org/wp-content/uploads/2019/03/who-is-Jesus.jpg",
-      linkUrl: "https://blog.naver.com/goodchurch9006/223041710330",
-    },
-    {
-      id: 4,
-      imgUrl: "/4",
-      linkUrl: "https://blog.naver.com/goodchurch9006/223041694325",
-    },
-    {
-      id: 5,
-      imgUrl:
-        "https://www.logoyogo.com/web/wp-content/uploads/edd/2021/04/logoyogo-1-119.jpg",
-      linkUrl: "https://blog.naver.com/goodchurch9006/223041688731",
-    },
-  ];
-
-  const handleButtonClick = (linkUrl) => {
-    window.location.href = linkUrl;
-  };
-
+  
+  
   return (
     <>
       <WrapBox>
         <AppBar />
-
         <div>
           <Slider {...Bannersettings}>
             {
-              bannerList.map((banner) => {
-                return (
-                  <BannerDiv>
-                    <BannerImg src={banner.imagePath} alt="banner" />
+              banners.map(({id,imagePath}) => (
+                    <BannerDiv key={id}>
+                    <BannerImg src={imagePath} alt="banner" />
                   </BannerDiv>
-                )
-              })
+                 ))
             }
           </Slider>
         </div>
@@ -125,16 +144,20 @@ function Home() {
         <ContentBoxDiv>
           <h1>참조은 Story</h1>
           <StyledSlider {...albumSettings}>
-            {homeAlbumData.map((item) => (
-              <TitleImgDiv
-                key={item.id}
-                onClick={() => handleButtonClick(item.linkUrl)}
+            {
+            storys.map(({id,imgUrl,linkUrl}) => (
+                <TitleImgDiv key={id}
+                onClick={() => handleButtonClick(linkUrl)}
               >
-                <TitleImg src={item.imgUrl} alt="sampleImg" />
+                <TitleImg src={imgUrl} alt="df" />
               </TitleImgDiv>
-            ))}
+              
+            ))
+            }
           </StyledSlider>
         </ContentBoxDiv>
+
+
         <ContentBoxDiv>
           <h1>예배시간 안내</h1>
           <TableBoxDiv>
@@ -146,7 +169,10 @@ function Home() {
       </WrapBox>
     </>
   );
+
 }
+
+
 
 const WrapBox = Styled.div`
   width: 100%;

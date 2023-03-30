@@ -1,24 +1,46 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import clogo from '../clogo.png';
+import { useState, useEffect } from "react";
 
 
+
+const logoData ={
+    id:1,
+    logoImgUrl:"https://user-images.githubusercontent.com/73478057/228534858-690c2a3a-2116-40f5-847e-c11d81f6268d.png"
+  }
 const AppBar = () => {
+  const [logo,setLogo] = useState(0);
+  const getLogo = async() => {
+    setLogo(logoData)
+    };
+
+useEffect (()=> {
+  getLogo();
+},[]);
+
   const navigate = useNavigate()
+
+
+  
   return (
+    
+
       <AppBarDiv>
+
+        
         <LogoImgDiv
           onClick={() => {
             navigate("/");
           }}
           >
-         <img src={clogo} alt="clogo" />  
+         <img src={logo.logoImgUrl} alt="로고다" />  
         </LogoImgDiv>
                
         <CoreMenuListDiv>
         <MenuDiv
         onClick={() => {
           navigate("/welcome");
+        
         }}
         >환영합니다</MenuDiv>
         <MenuDiv
@@ -41,6 +63,7 @@ const AppBar = () => {
       </CoreMenuListDiv>
     </AppBarDiv>
   );
+
 };
 const AppBarDiv = styled.div`
   position: fixed;
