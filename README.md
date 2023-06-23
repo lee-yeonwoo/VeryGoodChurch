@@ -1,4 +1,5 @@
 ## React로 지역 교회 홈페이지만들기
+JS + React 학습용 제작 프로젝트 
 <img width="880" alt="스크린샷 2023-06-23 오후 8 14 05" src="https://github.com/lee-yeonwoo/VeryGoodChurch/assets/73478057/ddd5ff44-3621-43b5-96a6-245d3325e317">
 
 
